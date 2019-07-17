@@ -1,0 +1,55 @@
+body{
+	margin:0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000;
+	height: 100vh;
+}
+.neon{
+	position: relative;
+	overflow: hidden;
+	filter: brightness(200%);
+
+}
+.text{
+	background: #000;
+	color: #fff;
+	font-weight: bold;
+	font-size: 180px;
+	font-family: sans-serif;
+	user-select: none;
+}
+.text::before{
+	content: attr(data-text);
+	position: absolute;
+	color: #fff;
+	filter: blur(0.02em);
+
+}
+
+.gradient{
+	position: absolute;
+	background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	mix-blend-mode: multiply;
+}
+.spotlight{
+	position: absolute;
+	top: -100%;
+	left: -100%;
+	right: 0;
+	bottom: 0;
+	background: radial-gradient(circle,white,transparent 25%) center / 25% 25%, radial-gradient(circle,white,black 25%) center / 12.5% 12.5%;
+	animation: light 8s linear infinite;
+	mix-blend-mode: color-dodge;
+}
+@keyframes light{
+	to{
+		transform: translate(50%,50%);
+	}
+}
